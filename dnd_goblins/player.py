@@ -11,8 +11,4 @@ class player:
         self.hp -= damage
         return self.hp
     
-    def feat(self):
-        ""
-        
-    
     
