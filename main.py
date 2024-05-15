@@ -8,19 +8,7 @@ import dnd_goblins.strings as strings
 
 def job_choice():
     job = input("Which one do you want?(fighter,archer,or wizard)")
-    
-    if job == "fighter":
-        player1 = player(job, 200, 10)
-        print(player1)
-    elif job == "archer":
-        player1 = player(job, 150, 50)
-        print(player1)
-    elif job == "wizard":
-        player1 = player(job, 80, 100)
-        print(player1)
-    else:
-        pass
-        
+    player1 = player(job)    
     return player1
 
 
@@ -31,8 +19,13 @@ def main():
     strings.intro()
     goblin1 = monster("goblin")
     player1 = job_choice()
-    combat.combat(player1,goblin1)
-    
-        
+    res = combat.combat(player1,goblin1)
+    if res == "win":
+        print("You win!!!!!!!!")
+        sys.exit()
+    elif res == "lose":
+        print("Oh no! You lose!!!!!")
+        print("Try again next life!")        
+        sys.exit()
 if __name__ == "__main__":
     main()
